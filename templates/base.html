@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<he ad >
+
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+	<title>Carlo</title>
+	<meta content="" name="description">
+	<meta content="" name="keywords">
+
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+	<!-- Vendor CSS Files -->
+	<link href="{{ url_for('static', filename='vendor/aos/aos.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+	<link href="{{ url_for('static', filename='vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+	<!-- Template Main CSS File -->
+	<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"></head>
+<style>
+	.nav-item {min-width: 10rem;} ;
+
+</style>
+{# navigation bar#}
+<body>
+	{% block content %}
+	<!-- ======= Header section ======= -->
+	<header id="header" class="fixed-top d-flex align-items-center">
+	  <div class="container">
+		<div class="header-container d-flex align-items-center justify-content-between">
+		  <div class="logo">
+			<h1 class="text-light"><a href="#"><span>Name of the application</span></a></h1>
+
+
+		  </div>
+
+		  <nav id="navbar" class="navbar">
+			<ul>
+			  <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+			  <li><a class="nav-link scrollto" href="#about">About</a></li>
+			  <li><a class="nav-link scrollto" href="#how_to_use">How to use</a></li>
+			   <li><a class="nav-link scrollto" href="#Contact_Us">Contact Us</a></li>
+				 <li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Dropdown
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Something else here</a>
+					</div>
+			  </li>
+        
+        <!-- Upload File form disguised as a button -->
+        <li>
+					<form id="upload-form" action="/upload" method="POST" enctype="multipart/form-data" style="display: inline;">
+							<label for="file-upload" class="getstarted scrollto" style="cursor:pointer;">Upload File</label>
+							<input id="file-upload" type="file" name="file" style="display:none;" onchange="document.getElementById('upload-form').submit();">
+					</form>
+			</li>
+	</ul>
+	<i class="bi bi-list mobile-nav-toggle"></i>
+		  </nav><!-- .navbar -->
+
+		</div><!-- End Header Container -->
+	  </div>
+
+		<!-- your navigation bar content here -->
+    
+    <!-- {% if video_files %}
+    <video width="320" height="240" controls>
+        <source src="{{ video_files[0] }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    {% else %}
+    <p>No videos have been uploaded.</p>
+    {% endif %} -->
+
+    <!-- the rest of your body content here -->
+	</header><!-- End Header section  -->
+
+
+	<!-- ======= Hero Section ======= -->
+	<section id="hero" class="d-flex align-items-center">
+		<div class="container text-center position-relative" data-aos="fade-in" data-aos-delay="200">
+			<h1>Welcome to .....</h1>
+			<br>
+			<h2>blaaaaaaaaaaaa bla blaaaaaaaaaaaaaaaaaaaaaaaaa</h2>
+	
+			<!-- Display the video if latest_file exists -->
+			{% if latest_file %}
+					<video width="320" height="240" controls autoplay loop>
+							<source src="{{ url_for('uploaded_file', filename=latest_file) }}" type="video/mp4">
+							Your browser does not support the video tag.
+					</video>
+			{% endif %}
+		</div>
+	</section><!--End of Hero Section 
+
+
+	  <!-- ======= About Section ======= -->
+
+<section id="about" class="about">
+  <div class="container">
+    <h2>About :</h2>
+    <div class="row content">
+      <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+        <!-- Display the video if latest_file exists -->
+        {% if latest_file %}
+          <video width="320" height="240" controls>
+            <source src="{{ url_for('uploaded_file', filename=latest_file) }}" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        {% endif %}
+      </div>
+      <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left" data-aos-delay="200">
+        <p>blaaaaaaaaaa bla </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+	
+
+
+	  <br><br>
+	  
+
+	  <!-- ======= How to use Section ======= -->
+
+	  <section id="how_to_use" class="how_to_use">
+		  <div class="container">
+		  <h2>How to Use : </h2>
+		  <br>
+		  <p>xxxxxxxxxxxxxx xxxxxxxxx</p>
+		  
+		</div>
+	  </section><!-- End of How to use Section -->
+
+	  <br><br>
+
+
+	  
+
+	<!-- ======= Contact Us section  ======= -->
+
+	  <section id="#Contact_Us" class="Contact Us">
+		<div class="container">
+		<h2>Contact Us</h2>
+		
+		<br>
+	    </div>
+      </section><!-- End of Contact Us Section -->
+
+
+
+	<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+	<!-- Vendor JS Files -->
+	<script src="{{ url_for('static', filename='vendor/purecounter/purecounter.js') }}"></script>
+	<script src="{{ url_for('static', filename='vendor/aos/aos.js') }}"></script>
+	<script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='vendor/glightbox/js/glightbox.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='vendor/php-email-form/validate.js') }}"></script>
+
+	<!-- Template Main JS File -->
+	<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+<script>
+	fetch('/uploads')
+			.then(response => response.json())
+			.then(data => {
+					let files_list = document.getElementById('files_list');
+					data.forEach(file => {
+							let li = document.createElement('li');
+							li.textContent = file;
+							files_list.appendChild(li);
+					});
+			});
+
+
+	{% endblock %}
+  </body>
+  </html>
+
+

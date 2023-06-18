@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html>
+<he ad >
+
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+	<title>JIDA</title>
+	<meta content="" name="description">
+	<meta content="" name="keywords">
+
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+	<!-- Vendor CSS Files -->
+	<link href="{{ url_for('static', filename='vendor/aos/aos.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+	<link href="{{ url_for('static', filename='vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+	<!-- Template Main CSS File -->
+	<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"></head>
+<style>
+	.nav-item {min-width: 10rem;} ;
+
+</style>
+{# navigation bar#}
+<body>
+	{% block content %}
+	<!-- ======= Header section ======= -->
+	<header id="header" class="fixed-top d-flex align-items-center">
+	  <div class="container">
+		<div class="header-container d-flex align-items-center justify-content-between">
+		  <div class="logo">
+			<h1 class="text-light"><a href="#"><span>JIDA</span></a></h1>
+
+
+		  </div>
+
+		  <nav id="navbar" class="navbar">
+			<ul>
+			  <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+			  <li><a class="nav-link scrollto" href="#about">About</a></li>
+			  <li><a class="nav-link scrollto" href="#how_to_use">How to use</a></li>
+			  <li><a class="nav-link scrollto" href="#glossary">Glossary</a></li>
+			   <li><a class="nav-link scrollto" href="#Contact_Us">Contact Us</a></li>
+
+			  <li><a class="getstarted scrollto" href="home"target = "_blank">SNP browser</a></li>
+
+			</ul>
+			<i class="bi bi-list mobile-nav-toggle"></i>
+		  </nav><!-- .navbar -->
+
+		</div><!-- End Header Container -->
+	  </div>
+	</header><!-- End Header section  -->
+<!-- jede html seite beginnt wie diese -->
+<html>
+    
+  <!-- hier im head laden wir jQuery (eine Javascript Library) herunter -->
+    <head>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+      <!-- das ist unser Form-feld für den File upload -->
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" />
+            <input type="submit" />
+        </form>
+        <!-- hier wird das Video angezeigt -->
+        <div id="video-preview"></div>
+        <!-- hier werden die Videos angezeigt -->
+        <div id="videos">
+            {% for filename in filenames %}
+            <a href="{{ url_for('uploaded_file', filename=filename) }}">{{ filename }}</a><br>
+            {% endfor %}
+        </div>
+        <!-- erstellt einen button auf den man klicken kann für die Filelist. Zur zeit springt dieser aber nirgends hin, da kein POST -->
+        <button id="file-list-button">View File List</button>
+        <!-- erklärt der Seite wo die javascript scripte zu finden sind in deiner App -->
+        <script src="/static/js/main.js"></script>
+    </body>
+</html>
+
+
+<!-- Vendor JS Files -->
+<script src="{{ url_for('static', filename='vendor/purecounter/purecounter.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/aos/aos.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/glightbox/js/glightbox.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/php-email-form/validate.js') }}"></script>
+
+<!-- Template Main JS File -->
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% endblock %}
+</body>
+</html>
